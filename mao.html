@@ -28,8 +28,13 @@ function keyup(e) {
   $('#userVal').text(heightOfMao);
   //listens for you to press the ENTER key, at which point your web address will change to the one you have input in the search box
   if (e.keyCode == 13) {
-    
-
+    if (heightOfMao < 4){
+	$('#result').empty();
+	$('#pics').empty();
+	$('#result').append('Your Mao is too puny for the glorious revolution.')
+	}
+	
+else {
 
 var mDimensions = [37, 10, 10]
 var vol = 1
@@ -87,7 +92,7 @@ for (var i = 0; i < maxLength; i++) {
 
 
 }
-
+}
 }
 
 </script>
