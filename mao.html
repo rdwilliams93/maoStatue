@@ -50,10 +50,22 @@ scaleFactor = heightOfMao/mDimensions[0]
 var newVol = heightOfMao * scaleFactor * (mDimensions[1]) * scaleFactor * mDimensions[2]
 
 var totMao = Math.floor(totalBudget/ (newVol * mCostPerVol))
-
-document.write('For the cost of replacing Trident. You can have ', totMao, " Mao's of height ", heightOfMao,"m!<br><br>");
-$( "#result" ).text('You can have ' + totMao + " Mao's");
+var element;
+element = document.getElementById("result");
+function isEmpty( el ){
+      return !$.trim(el.html())
   }
+  if (isEmpty($('#pics'))) {
+      // do something
+  }
+  else{
+  $('#pics').empty();
+  }
+if (element) {
+    element.innerHTML = 'For the cost of replacing Trident. You can have '+ totMao + " Mao's of height "+ heightOfMao + "m!<br><br>";
+}
+
+
 var maoPics = []
 for (i = 0; i < totMao; i +=1){
 	maoPics.push('./mao.jpg')
@@ -69,11 +81,14 @@ else {
 }
 for (var i = 0; i < maxLength; i++) {
     console.log(maoPics[i]);
-	document.write('<img src="' + maoPics[i] + '" width = "100"></img>');
+	$('#pics').append('<img src="' + maoPics[i] + '" width = "100"></img>');
+}
 
-    //Do something
+
+
 }
 
 }
+
 </script>
 </html>
