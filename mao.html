@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <title>How many Mao?</title>
+    </head>
+<body>
+
+<h1>How many Mao's can you have?</h1>
+<p> Type in your desired height and then press enter!</p>
+<input id="userVal" placeholder="Enter Mao height in meters...">
+
+
+<p id="result"></p>
+<p id="pics"></p>
+</body>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+
+
+//creates a listener for when you press a key
+window.onkeyup = keyup;
+
+//creates a global Javascript variable
+var heightOfMao;
+
+function keyup(e) {
+  //setting your input text to the global Javascript Variable for every key press
+  heightOfMao = e.target.value;
+  $('#userVal').text(heightOfMao);
+  //listens for you to press the ENTER key, at which point your web address will change to the one you have input in the search box
+  if (e.keyCode == 13) {
+    
+
+
+var mDimensions = [370, 10, 10]
+var vol = 1
+for (i = 0; i < mDimensions.length; i += 1) {
+    
+    vol *= mDimensions[i];
+}
+console.log(vol)
+var mCost = 310000
+var mCostPerVol = mCost/(370*10*10)
+
+var totalBudget = 25000000000
+
+
+
+scaleFactor = heightOfMao/mDimensions[0]
+
+var newVol = heightOfMao * scaleFactor * (mDimensions[1]) * scaleFactor * mDimensions[2]
+
+var totMao = Math.floor(totalBudget/ (newVol * mCostPerVol))
+
+document.write('For the cost of replacing Trident. You can have ', totMao, " Mao's of height ", heightOfMao,"m!<br>");
+$( "#result" ).text('You can have ' + totMao + " Mao's");
+  }
+var maoPics = []
+for (i = 0; i < totMao; i +=1){
+	maoPics.push('https://news.artnet.com/wp-content/news-upload/2016/01/mao-2.jpg')
+}
+var maxLength;
+var most = 8000;
+if (maoPics.length < most) {
+	maxLength = maoPics.length
+}
+
+else {
+	maxLength = most
+}
+for (var i = 0; i < maxLength; i++) {
+    console.log(maoPics[i]);
+	document.write('<img src="' + maoPics[i] + '" width = "100"></img>');
+
+    //Do something
+}
+
+}
+</script>
+</html>
